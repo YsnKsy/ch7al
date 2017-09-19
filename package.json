@@ -7,6 +7,14 @@
   "license": "MIT",
   "keywords": [
     "conversion", "Monnaie", "Maroc", "MAD", "DH", "Rial", "Centime", "Ryal",
-    "Real", "Franc", "Frank",
+    "Real", "Franc", "Frank"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/YsnKsy/ch7al.git"
+  },
+  "bugs": {
+    "url": "https://github.com/YsnKsy/ch7al/issues"
+  },
+  "homepage": "https://github.com/YsnKsy/ch7al"
 }
