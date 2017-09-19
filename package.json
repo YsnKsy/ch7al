@@ -1,13 +1,26 @@
 {
   "name": "ch7al",
   "version": "1.0.0",
-  "description": "Outil de conversion de la monnaie locale marocaine",
+  "description": "Outil de conversion de la monnaie locale marocaine.",
   "main": "ch7al.js",
   "author": "Yassine Kassy <y.kassy@me.com> (https://www.linkedin.com/in/yassinekassy)",
   "license": "MIT",
   "keywords": [
-    "conversion", "Monnaie", "Maroc", "MAD", "DH", "Rial", "Centime", "Ryal",
-    "Real", "Franc", "Frank"
+    "conversion",
+    "monnaie",
+    "mad",
+    "dh",
+    "dirham",
+    "centime",
+    "ryal",
+    "rial",
+    "riel",
+    "real",
+    "franc",
+    "frank",
+    "doro",
+    "maroc",
+    "morocco"
   ],
   "repository": {
     "type": "git",
