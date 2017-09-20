@@ -1,4 +1,4 @@
-# ch7al v1.0.2
+# ch7al v1.0.3
 
 ch7al is released under the [MIT license](https://raw.githubusercontent.com/YsnKsy/ch7al/master/LICENSE.md)
 
@@ -11,7 +11,7 @@ $ npm i --save ch7al
 
 In Node.js:
 ```js
-const Ch7al = require('./ch7al')
+const Ch7al = require('ch7al')
 
 const dh = new Ch7al( 1, 'dh' )
 const rial = new Ch7al( 1, 'rial' )
