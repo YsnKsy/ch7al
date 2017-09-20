@@ -1,64 +1,65 @@
 'use strict';
 /*
-const Ch7al = require('./ch7al.js');
-let ch7al = new Ch7al(100);
-console.log( ch7al.koulchi() );
+const Ch7al = require('./ch7al')
+let mad = new Ch7al();
+console.log( ch7al.toAllSubCurrencies() );
  */
+
+const includes = require('lodash/includes')
 
 class Ch7al {
 
-  constructor ( value ) {
-    this.name = 'Ch7al';
-    this.value = ( value ) ? value : false
-    this.centime = 1;
-    this.rial = this.centime * 5;
-    this.dh = this.centime * 100;
-  }
+  constructor ( value, currency ) {
+    this.name = 'Ch7al'
 
-  centime2Rial ( n ) {
-    return ( this.centime / this.rial ) * n;
-  }
+    this.centime = 1
+    this.rial = this.centime * 5
+    this.dh = this.centime * 100
+    this.centimeTags = ['centimes', 'centime', 'santims', 'santims']
+    this.rialTags = ['rials', 'riels', 'ryals', 'ryels', 'rial', 'riel', 'ryal', 'ryel']
+    this.dhTags = ['dirham', 'dirhem', 'dh', 'mad']
 
-  centime2Dh ( n ) {
-    return ( this.centime / this.dh ) * n;
-  }
-
-  rial2Centime ( n ) {
-    return ( this.rial / this.centime ) * n;
-  }
-
-  rial2Dh ( n ) {
-    return ( this.rial / this.dh ) * n;
-  }
-
-  dh2Centime ( n ) {
-    return ( this.dh / this.centime ) * n;
-  }
-
-  dh2Rial ( n ) {
-    return ( this.dh / this.rial ) * n;
-  }
-
-  koulchi () {
-    let result = this.value;
-    if ( this.value ) {
-      result = {
-        dh: {
-          centime: this.dh2Centime(this.value),
-          rial: this.dh2Rial(this.value)
-        },
-        rial: {
-          centime: this.rial2Centime(this.value),
-          dh: this.rial2Dh(this.value)
-        },
-        centime: {
-            rial: this.centime2Rial(this.value),
-            dh: this.centime2Dh(this.value)
-        }
-      };
+    if( ( value && value >= 0 )  && currency && ( includes( this.centimeTags, currency.toLocaleLowerCase() ) || includes( this.rialTags, currency.toLocaleLowerCase() ) || includes( this.dhTags, currency.toLocaleLowerCase() ) ) ) {
+      this.value = value
+      this.fromCurrency = currency.toLocaleLowerCase()
+    } else {
+      if( !value && value < 0 ) throw new ReferenceError("Please define a valid value > 0")
+      if( !currency ) throw new ReferenceError("Please define a moroccan subcurrency ( Dh, Rial, Centime )")
     }
+  }
+
+  to ( currency ) {
+    let result = 0
+
+    if ( currency ) {
+      // To centime
+      if ( includes( this.centimeTags, currency ) ) {
+        if ( includes( this.centimeTags, this.fromCurrency ) ) result = this.value
+        if ( includes( this.rialTags, this.fromCurrency ) ) result = ( this.rial / this.centime ) * this.value
+        if ( includes( this.dhTags, this.fromCurrency ) ) result = ( this.dh / this.centime ) * this.value
+      }
+
+      // To rial
+      if ( includes( this.rialTags, currency ) ) {
+        if ( includes( this.centimeTags, this.fromCurrency ) ) result = ( this.centime / this.rial ) * this.value
+        if ( includes( this.rialTags, this.fromCurrency ) ) result = this.value
+        if ( includes( this.dhTags, this.fromCurrency ) ) result = ( this.dh / this.rial ) * this.value
+      }
+
+      // To Dh
+      if ( includes( this.dhTags, currency ) ) {
+        if ( includes( this.centimeTags, this.fromCurrency ) ) result = ( ( this.centime / this.dh ) * this.value ).toFixed(2)
+        if ( includes( this.rialTags, this.fromCurrency ) ) result = ( ( this.rial / this.dh ) * this.value ).toFixed(2)
+        if ( includes( this.dhTags, this.fromCurrency ) ) result = this.value.toFixed(2)
+      }
+
+    } else {
+      throw new ReferenceError("Please define a moroccan subcurrency ( Dh, Rial, Centime )")
+    }
+
     return result
   }
+
 }
 
 module.exports = Ch7al;

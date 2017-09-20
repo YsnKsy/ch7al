@@ -1,3 +1,31 @@
-ch7al
+# ch7al v1.0.1
 
-Le dirham est la monnaie officielle frappée par le Maroc, pourtant nombre de Marocains parlent en doro, franc, centimes, pesetas et riel. Chacune de ces unités monétaires a des origines propres. Le rial, vient de «real», royal, en espagnol. Le doro désigne la même unité. Il serait une déformation de «pesos duro», qui désigne une pièce dure - donc une pièce en argent - en espagnol. La peseta, venue d'Espagne, elle aussi, a été introduite plus récemment. Avec la colonisation française, le franc intègre le marché marocain. Dans certains esprits, au centre du pays, notamment, il reste le «frank». Les tournants de l'histoire se succèdent et la seule monnaie à avoir bientôt légalement cours est le dirham.
+ch7al is released under the [MIT license](https://raw.githubusercontent.com/YsnKsy/ch7al/master/LICENSE.md)
+
+## Installation
+
+```shell
+$ npm i --save emad
+```
+## Example
+
+In Node.js:
+```js
+const Ch7al = require('./ch7al')
+
+const dh = new Ch7al( 1, 'dh' )
+const rial = new Ch7al( 1, 'rial' )
+const centime = new Ch7al( 5, 'centime' )
+
+console.log(`
+  - 1 Dh = ${dh.to('rial')} rials = ${dh.to('centime')} centimes
+  - 1 rials = ${rial.to('centime')} centimes = ${rial.to('dh')} Dh
+  - 5 centimes = ${centime.to('rial')} rials = ${centime.to('dh')} Dh
+`)
+
+/*
+- 1 Dh = 20 rials = 100 centimes
+- 1 rials = 5 centimes = 0.05 Dh
+- 5 centimes = 1 rials = 0.05 Dh
+*/
+```
