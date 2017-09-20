@@ -1,9 +1,4 @@
 'use strict';
-/*
-const Ch7al = require('./ch7al')
-let mad = new Ch7al();
-console.log( ch7al.toAllSubCurrencies() );
- */
 
 const includes = require('lodash/includes')
 

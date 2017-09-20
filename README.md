@@ -1,4 +1,4 @@
-# ch7al v1.0.1
+# ch7al v1.0.2
 
 ch7al is released under the [MIT license](https://raw.githubusercontent.com/YsnKsy/ch7al/master/LICENSE.md)
 
