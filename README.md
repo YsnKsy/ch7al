@@ -5,7 +5,7 @@ ch7al is released under the [MIT license](https://raw.githubusercontent.com/YsnK
 ## Installation
 
 ```shell
-$ npm i --save emad
+$ npm i --save ch7al
 ```
 ## Example
 
