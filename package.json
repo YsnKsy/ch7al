@@ -1,6 +1,6 @@
 {
   "name": "ch7al",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Outil de conversion de la monnaie locale marocaine.",
   "main": "ch7al.js",
   "author": "Yassine Kassy <y.kassy@me.com> (https://www.linkedin.com/in/yassinekassy)",
