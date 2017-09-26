@@ -1,4 +1,8 @@
-# ch7al v1.0.6 | [![Coverage Status](https://coveralls.io/repos/YsnKsy/ch7al/badge.svg?branch=master)](https://coveralls.io/r/YsnKsy/ch7al?branch=master)
+# ch7al v1.0.6
+
+[![Dependency Status](https://gemnasium.com/badges/github.com/YsnKsy/ch7al.svg)](https://gemnasium.com/github.com/YsnKsy/ch7al)
+[![Coverage Status](https://coveralls.io/repos/YsnKsy/ch7al/badge.svg?branch=master)](https://coveralls.io/r/YsnKsy/ch7al?branch=master)
+
 
 ch7al is released under the [MIT license](https://raw.githubusercontent.com/YsnKsy/ch7al/master/LICENSE.md)
 
