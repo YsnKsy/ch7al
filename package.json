@@ -1,6 +1,6 @@
 {
   "name": "ch7al",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Outil de conversion de la monnaie locale marocaine.",
   "main": "ch7al.js",
   "author": "Yassine Kassy <y.kassy@me.com> (https://www.linkedin.com/in/yassinekassy)",
@@ -31,6 +31,6 @@
   },
   "homepage": "https://github.com/YsnKsy/ch7al",
   "dependencies": {
-    "lodash": "^4.17.4"
+    "lodash.includes": "^4.3.0"
   }
 }

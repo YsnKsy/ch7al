@@ -1,6 +1,6 @@
 'use strict';
 
-const includes = require('lodash/includes')
+const includes = require('lodash.includes')
 
 class Ch7al {
 
