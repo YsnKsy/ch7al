@@ -1,6 +1,6 @@
 {
   "name": "ch7al",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "Outil de conversion de la monnaie locale marocaine.",
   "main": "ch7al.js",
   "scripts": {
