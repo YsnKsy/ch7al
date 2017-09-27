@@ -6,6 +6,10 @@
 
 ch7al is released under the [MIT license](https://raw.githubusercontent.com/YsnKsy/ch7al/master/LICENSE.md)
 
+## Description
+
+Moroccan Local Currency Converter
+
 ## Installation
 
 ```shell
