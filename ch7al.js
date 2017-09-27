@@ -4,7 +4,7 @@ const includes = require('lodash.includes')
 
 class Ch7al {
 
-  constructor ( value, currency ) {
+  constructor ({ value, currency }) {
     this.name = 'Ch7al'
 
     this.centime = 1
@@ -14,20 +14,13 @@ class Ch7al {
     this.rialTags = ['rials', 'riels', 'ryals', 'ryels', 'rial', 'riel', 'ryal', 'ryel']
     this.dhTags = ['dirham', 'dirhem', 'dh', 'mad']
 
-    if ( (value && value >= 0)  && currency &&
-      ( includes(this.centimeTags, currency.toLocaleLowerCase()) ||
-        includes(this.rialTags, currency.toLocaleLowerCase()) ||
-        includes(this.dhTags, currency.toLocaleLowerCase()) ) ) {
-      this.value = value
-      this.fromCurrency = currency.toLocaleLowerCase()
-
+    if ( (value && value >= 0) && (currency && (includes(this.centimeTags, currency.toLocaleLowerCase()) ||
+      includes(this.rialTags, currency.toLocaleLowerCase()) ||
+      includes(this.dhTags, currency.toLocaleLowerCase()))) ) {
+        this.value = value
+        this.fromCurrency = currency.toLocaleLowerCase()
     } else {
-
-      if( !value && value < 0 )
-        throw new ReferenceError("Please define a valid value > 0")
-
-      if( !currency )
-        throw new ReferenceError("Please define a moroccan subcurrency ( Dh, Rial, Centime )")
+      throw new ReferenceError()
     }
   }
 

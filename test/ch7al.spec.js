@@ -1,8 +1,12 @@
 const assert = require('assert')
-const ch7al = require('../ch7al')
+const Ch7al = require('../ch7al')
+const chai = require('chai')
+//const assert = chai.assert;    // Using Assert style
+const expect = chai.expect    // Using Expect style
+const should = chai.should()
 
-describe("new ch7al(1,'dirham')", () => {
-  const dh = new ch7al( 1, 'dh' )
+describe("new Ch7al(1,'dirham')", () => {
+  const dh = new Ch7al({ value: 1, currency: 'dh' })
 
   describe("#to('dh')", () => {
     it('should return 1 dh', () => {
@@ -23,8 +27,8 @@ describe("new ch7al(1,'dirham')", () => {
   })
 })
 
-describe("new ch7al(1,'rial')", () => {
-  const rial = new ch7al( 1, 'rial' )
+describe("new Ch7al(1,'rial')", () => {
+  const rial = new Ch7al({ value: 1,  currency: 'rial' })
 
   describe("#to('dh')", () => {
     it('should return 0.05 dh', () => {
@@ -45,8 +49,8 @@ describe("new ch7al(1,'rial')", () => {
   })
 })
 
-describe("new ch7al(5,'centimes')", () => {
-  const centime = new ch7al( 5, 'centimes' )
+describe("new Ch7al(5,'centimes')", () => {
+  const centime = new Ch7al({ value:5, currency: 'centimes'})
 
   describe("#to('dh')", () => {
     it('should return 0.05 dh', () => {
@@ -63,6 +67,40 @@ describe("new ch7al(5,'centimes')", () => {
   describe("#to('centime')", () => {
     it('should return 5 centimes', () => {
       assert.equal(5, centime.to('centime'))
+    })
+  })
+})
+
+describe("new Ch7al()", () => {
+  it('should throw error', () => {
+    expect(() => new Ch7al()).to.throw(Error)
+  })
+})
+
+describe("new Ch7al({})", () => {
+  it('should throw error', () => {
+    expect(() => new Ch7al({})).to.throw(Error)
+  })
+})
+
+describe("new Ch7al({ value: 1, currency: 'dirhems'})", () => {
+  it('should throw error', () => {
+    expect(() => new Ch7al({ value: 1 })).to.throw(Error)
+  })
+})
+
+describe("new Ch7al({ value: 0, currency: 'dh' })", () => {
+  const params = { value: 0, currency: 'dh' }
+  it('should throw error', () => {
+    expect(() => new Ch7al(params)).to.throw(Error)
+  })
+})
+
+describe("new Ch7al(1,'dirham')", () => {
+  const dh = new Ch7al({ value: 1, currency: 'dh' })
+  describe("#to()", () => {
+    it('should throw error', () => {
+      expect(() => dh.to()).to.throw(Error)
     })
   })
 })

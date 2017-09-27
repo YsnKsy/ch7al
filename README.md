@@ -1,4 +1,4 @@
-# ch7al v1.0.7
+# ch7al v1.0.8
 
 [![Build Status](https://travis-ci.org/YsnKsy/ch7al.svg?branch=master)](https://travis-ci.org/YsnKsy/ch7al)
 [![Dependency Status](https://gemnasium.com/badges/github.com/YsnKsy/ch7al.svg)](https://gemnasium.com/github.com/YsnKsy/ch7al)
