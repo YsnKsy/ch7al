@@ -8,7 +8,7 @@ ch7al is released under the [MIT license](https://raw.githubusercontent.com/YsnK
 
 ## Description
 
-Moroccan Local Currency Converter
+Moroccan Local Currency Converter, convert Dirham to Centimes, Rials & vice versa.
 
 ## Installation
 
