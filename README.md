@@ -21,9 +21,9 @@ In Node.js:
 ```js
 const Ch7al = require('ch7al')
 
-const dh = new Ch7al( 1, 'dh' )
-const rial = new Ch7al( 1, 'rial' )
-const centime = new Ch7al( 5, 'centime' )
+const dh = new Ch7al({ value: 1, currency: 'dh' })
+const rial = new Ch7al({ value: 1, currency: 'rial' })
+const centime = new Ch7al({ value: 5, currency: 'centime' })
 
 console.log(`
   - 1 Dh = ${dh.to('rial')} rials = ${dh.to('centime')} centimes
