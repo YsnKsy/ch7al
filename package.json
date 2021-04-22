@@ -1,14 +1,44 @@
 {
-  "name": "ch7al",
-  "version": "1.0.11",
-  "description": "Outil de conversion de la monnaie locale marocaine.",
-  "main": "ch7al.js",
-  "scripts": {
-    "test": "./node_modules/istanbul/lib/cli.js cover ./node_modules/.bin/_mocha",
-    "coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls"
-  },
-  "author": "Yassine Kassy <y.kassy@me.com> (https://www.linkedin.com/in/yassinekassy)",
+  "version": "0.0.0-development",
   "license": "MIT",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "scripts": {
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "tsdx test",
+    "lint": "tsdx lint",
+    "prepare": "tsdx build",
+    "size": "size-limit",
+    "analyze": "size-limit --why",
+    "test:watch": "tsdx test --watch",
+    "test:coverage": "tsdx test --coverage",
+    "test:coveralls": "tsdx test --coverage && coveralls < coverage/lcov.info",
+    "release": "semantic-release",
+    "commit": "git-cz"
+  },
+  "peerDependencies": {},
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "tsdx lint"
+    }
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "name": "ch7al",
+  "description": "Outil de conversion de la monnaie locale marocaine.",
   "keywords": [
     "conversion",
     "monnaie",
@@ -26,21 +56,76 @@
     "maroc",
     "morocco"
   ],
+  "author": "Yassine Kassy",
   "repository": {
     "type": "git",
-    "url": "git://github.com/YsnKsy/ch7al.git"
+    "url": "https://github.com/YsnKsy/ch7al.git"
   },
   "bugs": {
     "url": "https://github.com/YsnKsy/ch7al/issues"
   },
   "homepage": "https://github.com/YsnKsy/ch7al",
-  "dependencies": {
-    "lodash.includes": "^4.3.0"
-  },
+  "module": "dist/dirham.esm.js",
+  "size-limit": [
+    {
+      "path": "dist/dirham.cjs.production.min.js",
+      "limit": "10 KB"
+    },
+    {
+      "path": "dist/dirham.esm.js",
+      "limit": "10 KB"
+    }
+  ],
   "devDependencies": {
-    "chai": "^4.1.2",
-    "coveralls": "^3.0.0",
-    "istanbul": "^0.4.5",
-    "mocha": "^3.5.3"
+    "@commitlint/config-conventional": "^12.1.1",
+    "@semantic-release/changelog": "^5.0.1",
+    "@semantic-release/commit-analyzer": "^8.0.1",
+    "@semantic-release/git": "^9.0.0",
+    "@semantic-release/github": "^7.2.1",
+    "@semantic-release/npm": "^7.1.1",
+    "@semantic-release/release-notes-generator": "^9.0.2",
+    "@size-limit/preset-small-lib": "^4.10.2",
+    "commitizen": "^4.2.3",
+    "commitlint": "^12.1.1",
+    "coveralls": "^3.1.0",
+    "cz-conventional-changelog": "^3.3.0",
+    "husky": "^6.0.0",
+    "semantic-release": "^17.4.2",
+    "size-limit": "^4.10.2",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.2.0",
+    "typescript": "^4.2.4"
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "release": {
+    "branch": "master",
+    "npmPublish": true,
+    "ci": true,
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/changelog",
+      "@semantic-release/npm",
+      [
+        "@semantic-release/git",
+        {
+          "assets": [
+            "android/app/build.gradle",
+            "package.json"
+          ],
+          "message": "chore(release): ${nextRelease.version} \n\n${nextRelease.notes}"
+        }
+      ],
+      "@semantic-release/github"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
