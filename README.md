@@ -26,7 +26,6 @@ $ yarn add ch7al
 
 import ch7al from '../src'
 
-
 const mad = ch7al(1, 'dirham')
 /* or
   const mad = ch7al(100, 'centime')
